@@ -1,0 +1,56 @@
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(240, 180, 200, 1) 0%,
+    rgba(150, 190, 240, 1) 100%
+  );
+}
+
+.clock {
+  width: 550px;
+  height: 150px;
+  /* border: 2px solid black; */
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: rgba(255, 255, 255, 0.24); */
+  border-radius: 20px;
+}
+
+.clock div {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.24);
+  height: 150px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Bebas Neue", cursive;
+  font-size: 60px;
+  color: #202020;
+  border-radius: 5px;
+  /* border: 1px solid rgb(0, 0, 0); */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  letter-spacing: 3px;
+}
+
+.clock span{
+  font-weight: 700;
+  font-size: 60px;
+  color: #ffffff;
+}
