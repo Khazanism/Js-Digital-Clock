@@ -1,51 +1,28 @@
-//Tip Calculator
+//  Digital Clock
 
-// Add event listener
+var hour = document.getElementById("hour");
+var minute = document.getElementById("minute");
+var seconds = document.getElementById("seconds");
 
-const sliders = document.querySelectorAll("input[type='range']");
+var clock = setInterval(function time() {
+  
+    var date_now = new Date();
+    var hr = date_now.getHours();
+    var min = date_now.getMinutes();
+    var sec = date_now.getSeconds();
 
-sliders.forEach(function (sliders) {
-  sliders.addEventListener("input", calculateTip);
-});
+    if (hr < 10) {
+      hr = "0" + hr;
+    }
+    if (min < 10) {
+      min = "0" + min;
+    }
+    if (sec < 10) {
+      sec = "0" + sec;
+    }
 
-const billInput = document.getElementById("bill");
-billInput.addEventListener("change", calculateTip);
-
-// Get input values
-
-function calculateTip() {
-  let bill = parseFloat(billInput.value);
-  let tipPercent = document.getElementById("tip").value;
-  let noOfPeople = document.getElementById("no-of-people").value;
-
-  billInput.value = bill.toFixed(2);
-
-  // Calculate output values
-
-  let totalTip = parseFloat((bill * (tipPercent / 100)).toFixed(2));
-
-  let total = parseFloat((bill + totalTip).toFixed(2));
-
-  let tipPerPerson = (totalTip / noOfPeople).toFixed(2);
-
-  let totalPerPerson = (total / noOfPeople).toFixed(2);
-
-  // Display output values
-
-  document.getElementById("tip-amount").textContent = `\$ ${totalTip}`;
-
-  document.getElementById("total-amount").textContent = `\$ ${total}`;
-
-  document.getElementById("tip-percent").textContent = `${tipPercent}%`;
-
-  document.getElementById("split-num").textContent = noOfPeople;
-
-  document.getElementById("tip-per-person").textContent = `\$ ${tipPerPerson}`;
-
-  document.getElementById(
-    "total-per-person"
-  ).textContent = `\$ ${totalPerPerson}`;
-
-}
-
-calculateTip();
+    hour.textContent = hr;
+    minute.textContent = min;
+    seconds.textContent = sec;
+  }, 1000
+);
